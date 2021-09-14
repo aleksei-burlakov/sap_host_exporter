@@ -53,7 +53,7 @@ jobs:
       OBS_PROJECT: ${{ secrets.OBS_PROJECT }}
       REVISION: ${{ github.sha }}
       REPOSITORY: ${{ github.repository }}
-      GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_OAUTH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -78,7 +78,7 @@ jobs:
       TARGET_PROJECT: ${{ secrets.OBS_DOWNSTREAM_PROJECT }}
       REVISION: ${{ github.event.release.tag_name }}
       REPOSITORY: ${{ github.repository }}
-      GITHUB_OAUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_OAUTH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -104,4 +104,4 @@ jobs:
     - uses: AButler/upload-release-assets@v2.0
       with:
         files: 'sap_host_exporter-*'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token: ${{ secrets.GH_TOKEN }}
